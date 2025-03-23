@@ -52,3 +52,6 @@ export default tseslint.config({
   },
 })
 ```
+
+# Origin
+https://vuejsexamples.com/can-you-guess-the-number-figure-it-out-live-demo-available/
