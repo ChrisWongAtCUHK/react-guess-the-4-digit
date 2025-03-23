@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  FormEvent,
-  FormEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import './App.css'
 import CircleInfo from './components/icons/CircleInfo'
 import PaperPlaneIcon from './components/icons/PaperPlaneIcon'
@@ -96,7 +89,7 @@ function App() {
         setMessage(() => {
           return {
             show: true,
-            text: `You won! The secret number is ${secretNumber}.`,
+            text: `You won! The secret number is ${secretNumber.current}.`,
             variant: 'success',
           }
         })
@@ -104,7 +97,7 @@ function App() {
         setMessage(() => {
           return {
             show: true,
-            text: `Game over. The secret number was ${secretNumber}.`,
+            text: `Game over. The secret number was ${secretNumber.current}.`,
             variant: 'danger',
           }
         })
@@ -172,7 +165,7 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {Array(10).map((_, index) => {
+              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => {
                 return (
                   <tr key={index} className='table-row'>
                     <td>
@@ -234,7 +227,9 @@ function App() {
               <button
                 onClick={resetGame}
                 className='btn btn-sm btn-outline-secondary ml-2'
-              ></button>
+              >
+                Play again
+              </button>
             </div>
           ) : (
             <div className='text-center my-4'>
